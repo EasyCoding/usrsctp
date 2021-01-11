@@ -1,10 +1,10 @@
-%global commit0 f4925bd5ebb2db38263eef0ec816bf393293cf9c
+%global commit0 f1de842428b6d97c424e0d4b40bb4a25bd91b7ec
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global date 20201017
+%global date 20210110
 
 Name: usrsctp
 Version: 1.0.0
-Release: 0.1.%{date}git%{shortcommit0}%{?dist}
+Release: 0.2.%{date}git%{shortcommit0}%{?dist}
 
 License: BSD
 Summary: Portable SCTP userland stack
@@ -70,5 +70,8 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %{_libdir}/pkgconfig/%{name}.pc
 
 %changelog
+* Mon Jan 11 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0.0-0.2.20210110gitf1de842
+- Updated to f1de842 snapshot (upstream release 0.9.4.0).
+
 * Fri Oct 30 2020 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0.0-0.1.20201017gitf4925bd
 - Initial SPEC release.
