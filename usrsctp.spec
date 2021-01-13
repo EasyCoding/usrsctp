@@ -3,13 +3,14 @@
 %global date 20210110
 
 Name: usrsctp
-Version: 1.0.0
-Release: 0.2.%{date}git%{shortcommit0}%{?dist}
+Version: 0.9.5.0
+Release: 1%{?dist}
+Epoch: 1
 
 License: BSD
 Summary: Portable SCTP userland stack
 URL: https://github.com/sctplab/%{name}
-Source0: %{url}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
+Source0: %{url}/archive/%{version}/%{name}-%{version}.tar.gz
 
 BuildRequires: ninja-build
 BuildRequires: gcc-c++
@@ -42,7 +43,7 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %{summary}.
 
 %prep
-%autosetup -n %{name}-%{commit0} -p1
+%autosetup -p1
 
 %build
 %meson \
@@ -62,7 +63,7 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %files
 %doc README.md Manual.md
 %license LICENSE.md
-%{_libdir}/lib%{name}.so.1*
+%{_libdir}/lib%{name}.so.2*
 
 %files devel
 %{_includedir}/%{name}.h
@@ -70,6 +71,9 @@ Requires: %{name}%{?_isa} = %{?epoch:%{epoch}:}%{version}-%{release}
 %{_libdir}/pkgconfig/%{name}.pc
 
 %changelog
+* Wed Jan 13 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 1:0.9.5.0-1
+- Updated to version 0.9.5.0.
+
 * Mon Jan 11 2021 Vitaly Zaitsev <vitaly@easycoding.org> - 1.0.0-0.2.20210110gitf1de842
 - Updated to f1de842 snapshot (upstream release 0.9.4.0).
 
